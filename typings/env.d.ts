@@ -6,19 +6,19 @@ declare namespace NodeJS {
      */
     NEXT_PUBLIC_API_ROOT_WITHOUT_VERSION: string;
 
-    PARAMS: object;
+    NEXT_PUBLIC_APPID: string;
 
-    PATH: string;
+    NEXT_PUBLIC_PATH: string;
     }
 }
 
-declare module 'process' {
-    global {
-      namespace NodeJS {
-        interface ProcessEnv extends Dict<string> {
-          /** @deprecated Do not use an environment variable without defining it. Define a typing for it inside of env.d.ts */
-          [key: string]: unknown | undefined;
-        }
-      }
-    }
-  }
+// declare module 'process' {
+//     global {
+//       namespace NodeJS {
+//         interface ProcessEnv extends Dict<string> {
+//           /** @deprecated Do not use an environment variable without defining it. Define a typing for it inside of env.d.ts */
+//           [key: string]: unknown | undefined;
+//         }
+//       }
+//     }
+//   }

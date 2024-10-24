@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:local-bff": "cross-env PUBLIC_API_ROOT_WITHOUT_VERSION=http://localhost:5202/api/ next dev"
+    "dev": "cross-env NEXT_PUBLIC_API_ROOT_WITHOUT_VERSION=https://web-portalbffapi-dev.azurewebsites.net/api/ next dev",
+    "dev:local-bff": "cross-env NEXT_PUBLIC_API_ROOT_WITHOUT_VERSION=http://localhost:5202/api/ next dev"
   },
   "dependencies": {
     "axios": "^1.7.7",

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import DropdownToForm from './DropdownToForm';
 import { IFormProps } from './FormProps.interfaces';
 import { InputAsNumber, InputAsString } from './InputToForm';
-import { getConfigVariable } from '../config';
 import { getRequest, putRequest } from '../utils/requests';
 
 const Form = () => {
@@ -43,17 +42,19 @@ const Form = () => {
   });
 
 
-  // const path = process.env.PATH
-  // const params = process.env.PARAMS
+  const path = process.env.NEXT_PUBLIC_PATH
+  const appId = process.env.NEXT_PUBLIC_APPID
+  const endpoint = path+appId
+  const apiRoot = process.env.NEXT_PUBLIC_API_ROOT_WITHOUT_VERSION 
 
   useEffect(() => {   
     const fetchData = async () => {
       try {
         const data = await getRequest<IFormProps>(
-          process.env.PUBLIC_API_ROOT_WITHOUT_VERSION,
-          ''
+         apiRoot, 
+          endpoint, 
         );
-        
+             
         setFormData({
           ...data,
           useLessonDuration: data.useLessonDuration ? 'true' : 'false',
@@ -66,7 +67,7 @@ const Form = () => {
     };
 
     fetchData();
-  });
+  }, [apiRoot, path, endpoint]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -77,9 +78,10 @@ const Form = () => {
     e.preventDefault();
     try {
       const response = await putRequest(
-        getConfigVariable('API_ROOT_WITHOUT_VERSION'),
-        '',
+        apiRoot,
+        endpoint,
         formData
+      
       );
       console.log(response);
     } catch (error) {
