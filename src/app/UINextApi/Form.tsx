@@ -1,4 +1,4 @@
-
+'use client'
 import _ from 'lodash';
 import { useEffect, useState } from 'react';
 import DropdownToForm from './DropdownToForm';
@@ -43,16 +43,17 @@ const Form = () => {
   });
 
 
-  const path = process.env.PATH
-  const params = process.env.PARAMS
+  // const path = process.env.PATH
+  // const params = process.env.PARAMS
 
   useEffect(() => {   
     const fetchData = async () => {
       try {
         const data = await getRequest<IFormProps>(
-          getConfigVariable('API_ROOT_WITHOUT_VERSION'),
-          path, params
+          process.env.PUBLIC_API_ROOT_WITHOUT_VERSION,
+          ''
         );
+        
         setFormData({
           ...data,
           useLessonDuration: data.useLessonDuration ? 'true' : 'false',
@@ -77,7 +78,7 @@ const Form = () => {
     try {
       const response = await putRequest(
         getConfigVariable('API_ROOT_WITHOUT_VERSION'),
-        path, params,
+        '',
         formData
       );
       console.log(response);

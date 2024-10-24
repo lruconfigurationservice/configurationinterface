@@ -18,7 +18,7 @@ export const InputAsString = ({
       <label htmlFor={htmlFor}>{title}</label>
       <br />
 
-      <input type="text" name={name} onChange={onChange} value={value} className="w-full" />
+      <input type="text" name={name} onChange={onChange} value={value} className="w-full border border-black" />
     </div>
   );
 };
@@ -41,7 +41,7 @@ export const InputAsNumber = ({
       <label htmlFor={htmlFor}>{title}</label>
       <br />
 
-      <input type="number" name={name} onChange={onChange} value={value} className="w-full" />
+      <input type="number" name={name} onChange={onChange} value={value} className="w-full border border-black" />
     </div>
   );
 };

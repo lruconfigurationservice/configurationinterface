@@ -21,7 +21,7 @@ const DropdownToForm = ({
     <div className="pt-2">
       <label htmlFor={htmlFor}>{title}</label>
       <br />
-      <select name={name} value={String(value)} onChange={onChange}>
+      <select name={name} value={String(value)} onChange={onChange} className='border border-black'>
         {dropdownOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
