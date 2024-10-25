@@ -5,8 +5,13 @@ import DropdownToForm from './DropdownToForm';
 import { IFormProps } from './FormProps.interfaces';
 import { InputAsNumber, InputAsString } from './InputToForm';
 import { getRequest, putRequest } from '../utils/requests';
+import SubmitFormModal from './SubmitFormModal';
 
 const Form = () => {
+  const [modal, setModal] = useState(false)
+  const toggleModal = () => {
+    setModal(!modal)
+  }
   const [formData, setFormData] = useState<IFormProps>({
     publisher: {
       heading: '',
@@ -83,6 +88,7 @@ const Form = () => {
         formData
       
       );
+      setModal(true)
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -90,6 +96,8 @@ const Form = () => {
   };
 
   return (
+    <div>
+    {modal && (<SubmitFormModal toggleModal={toggleModal}/>)}
     <form onSubmit={handleSubmit}>
       <div className="grid grid-cols-3 justify-center gap-6">
         <div className="col-span-1 p-2">
@@ -288,6 +296,7 @@ const Form = () => {
         <button className="rounded bg-black pl-2 pr-2 text-white ">Submit</button>
       </div>
     </form>
+    </div>
   );
 };
 

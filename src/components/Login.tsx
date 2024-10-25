@@ -2,10 +2,10 @@
 import { useState } from "react";
 
 interface LoginProps {
-    onLoginSucces: () => void;
+    onLoginSuccess: () => void;
 }
 
-const Login: React.FC<LoginProps> = ({onLoginSucces}) => {
+const Login: React.FC<LoginProps> = ({onLoginSuccess}) => {
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('')
     const [success, setSuccess] = useState(false)
@@ -13,12 +13,11 @@ const Login: React.FC<LoginProps> = ({onLoginSucces}) => {
 
     const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
             e.preventDefault()
-
             if ((user === process.env.NEXT_PUBLIC_USERNAME) && (pwd === process.env.NEXT_PUBLIC_PWD)){
             setUser('')
             setPwd('')
             setSuccess(true)
-            onLoginSucces()
+            onLoginSuccess()
          }
             else {
                 setError(true)  
