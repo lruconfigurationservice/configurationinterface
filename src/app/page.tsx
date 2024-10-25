@@ -1,7 +1,14 @@
+'use client'
+import Login from "@/components/Login";
 import Form from "./UINextApi/Form";
+import { useState } from "react";
 
 export default function Home() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
-    <Form />
+    <div className=" bg-slate-200 h-[100vh]">
+    <Login onLoginSucces={() => setIsLoggedIn(true)}/>
+    {isLoggedIn && <Form />}
+    </div>
   );
 }
