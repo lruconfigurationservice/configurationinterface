@@ -6,9 +6,12 @@ import { useState } from "react";
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
-    <div className="bg-slate-200 h-[100vh]">
+  
+    <div className="bg-slate-200 h-full">
     <Login onLoginSuccess={() => setIsLoggedIn(true)}/>
-    {isLoggedIn && <Form />}
+    {isLoggedIn && <Form/>}
     </div>
+ 
+
   );
 }

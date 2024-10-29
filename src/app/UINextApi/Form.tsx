@@ -96,7 +96,7 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className='min-h-screen'>
     {modal && (<SubmitFormModal toggleModal={toggleModal}/>)}
     <form onSubmit={handleSubmit}>
       <div className="grid grid-cols-3 justify-center gap-6">
@@ -293,7 +293,7 @@ const Form = () => {
       </div>
 
       <div className="font flex w-full justify-center ">
-        <button className="rounded bg-black pl-2 pr-2 text-white ">Submit</button>
+        <button className="rounded bg-black pl-2 pr-2 text-white p-1">Submit</button>
       </div>
     </form>
     </div>
