@@ -1,6 +1,6 @@
 To visit form on Vercel:
 
- 1. Login to the Vercel account running the app (drift@*****.**, ask Jonas)
+ 1. Login to the Vercel account running the app (drift@xxxxxx.xx, ask Jonas)
  2. Go to 'Deployment' tab
  3. Click 'Visit' button
  
