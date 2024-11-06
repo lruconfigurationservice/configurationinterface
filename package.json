@@ -5,7 +5,8 @@
   "scripts": {
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev": "cross-env next dev"
   },
   "dependencies": {
     "axios": "^1.7.7",
