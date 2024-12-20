@@ -9,8 +9,12 @@ import SubmitFormModal from "./SubmitFormModal";
 import {defaultConfig} from "./DefaultConfigFormValues";
 
 interface IFormProps {
-  appId: string,
-  serverUrl: string
+  appId: string;
+  serverUrl: string;
+}
+
+interface Error {
+    message: string;
 }
 
 const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
@@ -43,6 +47,7 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
         });
         
         setDataLoaded(true);
+        // eslint-disable-next-line 
       } catch (error: any) {
         setError(error.message);
         console.log("Error fetching data ", error);
@@ -65,6 +70,7 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
       const response = await putRequest(serverUrl, endpoint, formData);
       setModal(true);
       console.log(response);
+      // eslint-disable-next-line 
     } catch (error: any) {
       setError(error.message);
     }
@@ -280,7 +286,6 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
               <button className="rounded bg-black pl-2 pr-2 text-white p-1">
                 Submit
               </button>
-              <div className="p-2">Double check the settings you're about to save!</div>
             </div>
           </form>
       )}
