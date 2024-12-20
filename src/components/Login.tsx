@@ -24,10 +24,7 @@ const Login: React.FC<LoginProps> = ({onLoginSuccess}) => {
     }}
 
     return <div>
-    {success ? ( <section>
-        <h1>You are logged in!</h1>
-        <br />
-    </section>) : (
+    {success ? ( <section></section>) : (
         <div className="flex justify-center items-center h-[100vh]">
         <form onSubmit={handleSubmit}>
         {error ? (<p>Failed Login</p>) : (<></>)}
