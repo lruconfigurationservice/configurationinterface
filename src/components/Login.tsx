@@ -39,8 +39,6 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     <div>
       {success ? (
         <section>
-          <h1>You are logged in!</h1>
-          <br />
         </section>
       ) : (
         <div className="flex justify-center items-center h-[100vh]">

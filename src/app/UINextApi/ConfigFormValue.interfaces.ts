@@ -1,4 +1,4 @@
-export interface IFormProps {
+export interface IConfigFormValues {
   publisher: {
     heading: string;
     logo: {
