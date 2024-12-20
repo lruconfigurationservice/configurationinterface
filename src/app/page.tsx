@@ -36,7 +36,7 @@ export default function Home() {
     if (serverUrl != null) {
       setFormData((prevData) => _.set({ ...prevData }, 'serverUrl', serverUrl));
     }
-  }, []);
+  }, [appId, serverUrl]);
 
   function getQueryParam(param: string): string | null {
     const urlParams = new URLSearchParams(window.location.search);
