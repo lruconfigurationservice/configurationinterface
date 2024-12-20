@@ -12,13 +12,13 @@ interface IFormProps {
 
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [appId, setAppId] = useState<string | null>(getQueryParam('appId'));
-  const [serverUrl, setServerUrl] = useState<string | null>(getQueryParam('server'));
+  const [appId] = useState<string | null>(getQueryParam('appId'));
+  const [serverUrl] = useState<string | null>(getQueryParam('server'));
   const [formData, setFormData] = useState<IFormProps>({
     appId: '',
     serverUrl: '',
   });
-  const [serverUrls, setServerUrls] = useState<string[]>(getServerUrls());
+  const [serverUrls] = useState<string[]>(getServerUrls());
   
   function getServerUrls() {
     // split value of process.env.SERVERS by comma, and make array 
