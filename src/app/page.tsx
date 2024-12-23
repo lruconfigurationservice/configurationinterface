@@ -4,6 +4,7 @@ import Form from "./UINextApi/Form";
 import { InputAsString } from "./UINextApi/InputToForm";
 import { useEffect, useState } from "react";
 import _ from "lodash";
+import { useSearchParams } from 'next/navigation';
 
 interface IFormProps {
   appId: string,
@@ -11,6 +12,7 @@ interface IFormProps {
 }
 
 export default function Home() {
+  const searchParams = useSearchParams()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [appId] = useState<string | null>(getQueryParam('appId'));
   const [serverUrl] = useState<string | null>(getQueryParam('server'));
@@ -19,6 +21,19 @@ export default function Home() {
     serverUrl: '',
   });
   const [serverUrls] = useState<string[]>(getServerUrls());
+
+  useEffect(() => {
+    if (appId != null) {
+      setFormData((prevData) => _.set({ ...prevData }, 'appId', appId));
+    }
+    if (serverUrl != null) {
+      setFormData((prevData) => _.set({ ...prevData }, 'serverUrl', serverUrl));
+    }
+  }, [appId, serverUrl]);
+
+  function getQueryParam(param: string) {
+    return searchParams.get(param);
+  }
   
   function getServerUrls() {
     // split value of process.env.SERVERS by comma, and make array 
@@ -29,26 +44,10 @@ export default function Home() {
     return servers;
   }
 
-  useEffect(() => {
-    if (appId != null) {
-        setFormData((prevData) => _.set({ ...prevData }, 'appId', appId));
-    }
-    if (serverUrl != null) {
-      setFormData((prevData) => _.set({ ...prevData }, 'serverUrl', serverUrl));
-    }
-  }, [appId, serverUrl]);
-
-  function getQueryParam(param: string): string | null {
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    return urlParams.get(param);
-  }
-
   const handleAppIdSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     appendQueryParamsToUrl(formData);
   };
-
 
   const handleChange = (
       e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
