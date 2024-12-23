@@ -13,10 +13,6 @@ interface IFormProps {
   serverUrl: string;
 }
 
-interface Error {
-    message: string;
-}
-
 const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
   const [modal, setModal] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
