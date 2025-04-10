@@ -8,6 +8,7 @@ export const defaultConfig: IConfigFormValues = {
             id: "",
             type: "",
         },
+        brandColor: ""
     },
     favicon: {
         icoUrl: "",

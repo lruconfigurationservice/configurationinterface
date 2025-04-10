@@ -94,7 +94,16 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
                     name="publisher.heading"
                     title="Heading"
                 />
-
+                <br/>
+                <InputAsString
+                    htmlFor="brandColor"
+                    onChange={handleChange}
+                    value={formData.publisher.brandColor}
+                    name="publisher.brandColor"
+                    title="BrandColor"
+                />
+                <br/>
+                <br/>
                 <h2 className="text-lg font-bold">Logo</h2>
                 <InputAsString
                     htmlFor="id"
@@ -111,11 +120,8 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
                     name="publisher.logo.type"
                     title="Type"
                 />
-
                 <br/>
                 <br/>
-                <br/>
-
                 <h1 className="text-xl font-bold">Login Modal Link</h1>
                 <InputAsString
                     htmlFor="heading"
@@ -124,7 +130,6 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
                     name="loginModalLink.heading"
                     title="Heading"
                 />
-
                 <br/>
                 <InputAsString
                     htmlFor="url"
@@ -133,8 +138,6 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
                     name="loginModalLink.url"
                     title="Url"
                 />
-
-                <br/>
                 <br/>
                 <br/>
                 <h1 className="text-xl font-bold">License Link</h1>

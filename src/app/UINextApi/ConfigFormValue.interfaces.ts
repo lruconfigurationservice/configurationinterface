@@ -5,6 +5,7 @@ export interface IConfigFormValues {
       id: string;
       type: string;
     };
+    brandColor: string;
   };
 
   favicon: {
