@@ -6,6 +6,7 @@ export interface IConfigFormValues {
       type: string;
     };
     brandColor: string;
+    enableFavorite: string;
   };
 
   favicon: {

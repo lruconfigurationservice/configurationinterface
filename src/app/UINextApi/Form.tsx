@@ -33,6 +33,10 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
 
         setFormData({
           ...data,
+           publisher: {
+            ...data.publisher,
+            enableFavorite: data.publisher.enableFavorite ? "true" : "false",
+          },
           useLessonDuration: data.useLessonDuration ? "true" : "false",
           useLessonDurationActivity: data.useLessonDurationActivity
             ? "true"
@@ -103,6 +107,14 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
                     title="BrandColor"
                 />
                 <br/>
+                <DropdownToForm
+                    htmlFor="enableFavorite"
+                    name="publisher.enableFavorite"
+                    value={formData.publisher.enableFavorite}
+                    onChange={handleChange}
+                    title="EnableFavorite"
+                />
+                <br/>
                 <br/>
                 <h2 className="text-lg font-bold">Logo</h2>
                 <InputAsString
@@ -144,7 +156,7 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
                 <InputAsString
                     htmlFor="heading"
                     onChange={handleChange}
-                    value={formData.licenseLink.heading}
+                    value={formData.licenseLink?.heading ?? ''} 
                     name="licenseLink.heading"
                     title="Heading"
                 />
@@ -153,7 +165,7 @@ const Form: React.FC<IFormProps> = ({ appId, serverUrl }) => {
                 <InputAsString
                     htmlFor="url"
                     onChange={handleChange}
-                    value={formData.licenseLink.url}
+                    value={formData.licenseLink?.url ?? ''}
                     name="licenseLink.url"
                     title="Url"
                 />
